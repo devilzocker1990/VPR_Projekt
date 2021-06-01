@@ -1,0 +1,33 @@
+﻿<Window x:Class="VPR_Projekt.Levelauswahl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VPR_Projekt"
+        mc:Ignorable="d"
+        Title="Levelauswahl" Height="550" Width="800">
+    <StackPanel Orientation="Vertical">
+        <Label Content="Levelauswahl" HorizontalAlignment="Center" FontSize="36" Margin="0,0,0,50"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="Level1Btn" Grid.Column="0" Grid.Row="0" Content="Level 1" Width="100" Margin="10" FontSize="23" Click="Level1Btn_Click"/>
+            <Button Name="Level2Btn" Grid.Column="1" Grid.Row="0" Content="Level 2" Width="100" Margin="10" FontSize="23" Click="Level2Btn_Click"/>
+            <Button Name="Level3Btn" Grid.Column="0" Grid.Row="1" Content="Level 3" Width="100" Margin="10" FontSize="23" Click="Level3Btn_Click"/>
+            <Button Name="Level4Btn" Grid.Column="1" Grid.Row="1" Content="Level 4" Width="100" Margin="10" FontSize="23" Click="Level4Btn_Click"/>
+            <Button Name="Level5Btn" Grid.Column="0" Grid.Row="2" Content="Level 5" Width="100" Margin="10" FontSize="23" Click="Level5Btn_Click"/>
+            <Button Name="Level6Btn" Grid.Column="1" Grid.Row="2" Content="Level 6" Width="100" Margin="10" FontSize="23" Click="Level6Btn_Click"/>
+            <Button Name="Level7Btn" Grid.Column="0" Grid.Row="3" Content="Level 7" Width="100" Margin="10" FontSize="23" Click="Level7Btn_Click"/>
+            <Button Name="Level8Btn" Grid.Column="1" Grid.Row="3" Content="Level 8" Width="100" Margin="10" FontSize="23" Click="Level8Btn_Click"/>
+        </Grid>
+        <Button Name="BackBtn" Content="Zurück" Width="100" FontSize="24" Margin="0,80,0,0" Click="BackBtn_Click"/>
+    </StackPanel>
+</Window>
