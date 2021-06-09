@@ -41,7 +41,7 @@ namespace VPR_Projekt {
     public partial class Spiel : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 9 "..\..\Spiel.xaml"
+        #line 10 "..\..\Spiel.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid spielfeldGrid;
         
