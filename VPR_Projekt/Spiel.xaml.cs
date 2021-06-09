@@ -39,6 +39,10 @@ namespace VPR_Projekt
         int X;
         int Y;
 
+        int[] roundx = { 0, 1, 0, -1 };
+        int[] roundy = { -1, 0, 1, 0 };
+        int[] duoblock = new int[4];
+
         /// <summary>
         /// Der Konstruktor welcher für den Start die werte Festlegt und beim start des Programms
         /// ausgewählte Methoden aufruft.
@@ -96,12 +100,16 @@ namespace VPR_Projekt
                 firstPick = false;
                 block[X, Y] = btnToSwitch;
                 block[blockposition[0], blockposition[1]] = (Bloecke)sender;
+                ComboFirstBlock();
                 spielfeldGrid.Children.Clear();
 
                 for (int y = 0; y < spielfeldY; y++)
                 {
                     for (int x = 0; x < spielfeldX; x++)
                     {
+                        Bloecke bloecke = new Bloecke();
+                        block[x, y] = bloecke.BlockErstellung(block[x, y].wert);
+                        block[x, y].Click += new RoutedEventHandler(OnClick);
                         Grid.SetColumn(block[x, y], x);
                         Grid.SetRow(block[x, y], y);
                         spielfeldGrid.Children.Add(block[x, y]);
@@ -114,6 +122,7 @@ namespace VPR_Projekt
                 blockposition[1] = Y;
                 btnToSwitch = (Bloecke)sender;
             }
+            FeldEinrückung();
 
         }
 
@@ -123,41 +132,158 @@ namespace VPR_Projekt
         private void FeldEinrückung()
         {
             Random ran = new Random();
-            for (int i = Y; i > 0; i--)
+            for (int i = spielfeldY - 1; i > 0; i--)
             {
-                for (int j = X; j > 0; j--)
+                for (int j = spielfeldX - 1; j > 0; j--)
                 {
-                    if (block[X, Y].wert == 0)
+                    if (block[i, j].wert == 69)
                     {
-                        if (block[X, Y - 1].wert == 0)
+                        if (block[i, j - 1].wert == 69)
                         {
                             int counter = 1;
                             for (int k = 1; k > block.GetLength(0) - 1; k++)
                             {
-                                if (block[X, Y - 1].wert == 0)
+                                if (block[i, j - 1].wert == 69)
                                 {
                                     counter++;
                                 }
                                 else
                                 {
-                                    block[X, Y].wert = block[X, Y - counter].wert;
-                                    block[X, Y - counter].wert = 0;
+                                    block[i, j].wert = block[i, j - counter].wert;
+                                    block[i, j - counter].wert = 0;
                                 }
                             }
                         }
                         else
                         {
-                            block[X, Y].wert = block[X, Y - 1].wert;
-                            block[X, Y - 1].wert = 0;
+                            block[i, j].wert = block[i, j - 1].wert;
+                            block[i, j - 1].wert = 0;
                         }
                     }
-                    if (block[X, 0].wert == 0)
+                    if (block[j, 0].wert == 69)
                     {
-                        block[X, 0].BlockErstellung(ran.Next(1, 6));
+                        block[j, 0].BlockErstellung(ran.Next(1, 6));
                     }
                 }
             }
         }
+
+
+        /*
+                int[] roundx = { 0, 1, 0, -1 };
+                int[] roundy = { -1, 0, 1, 0 };*/
+
+        bool top = false;
+        bool right = false;
+        bool bot = false;
+        bool left = false;
+        void ComboFirstBlock()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (blockposition[1] + roundy[i] >= 0 && blockposition[1] + roundy[i] < spielfeldY - 1 && blockposition[0] + roundx[i] >= 0 && blockposition[0] + roundy[i] < spielfeldX - 1)
+                {
+
+
+                    if (block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + roundx[i], blockposition[1] + roundy[i]].wert)
+                    {
+                        switch (i + 1)
+                        {
+                            case 1:
+                                if (blockposition[1] - 2 > 0 && block[blockposition[0], blockposition[1] - 1].wert == block[blockposition[0], blockposition[1] - 2].wert)
+                                {
+                                    top = true;
+                                }
+                                break;
+                            case 2:
+                                if (blockposition[0] + 2 < spielfeldX && block[blockposition[0] + 1, blockposition[1]].wert == block[blockposition[0] + 2, blockposition[1]].wert)
+                                {
+                                    right = true;
+                                }
+                                break;
+                            case 3:
+                                if (blockposition[1] + 2 < spielfeldY && block[blockposition[0], blockposition[1] + 1].wert == block[blockposition[0], blockposition[1] + 2].wert)
+                                {
+                                    bot = true;
+                                }
+                                break;
+                            case 4:
+                                if (blockposition[0] - 2 > 0 && block[blockposition[0] - 1, blockposition[1]].wert == block[blockposition[0] - 2, blockposition[1]].wert)
+                                {
+                                    left = true;
+                                }
+                                break;
+                        };
+                    }
+                }
+            }
+            if (top)
+            {
+                for (int y = 1; y < spielfeldY; y++)
+                {
+                    if (blockposition[1] - y >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] - y].wert)
+                    {
+                        block[blockposition[0], blockposition[1] - y].wert = 69;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            if (right)
+            {
+                for (int x = 1; x < spielfeldX; x++)
+                {
+                    if (blockposition[0] + x < spielfeldX && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + x, blockposition[1]].wert)
+                    {
+                        block[blockposition[0] + x, blockposition[1]].wert = 69;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            if (bot)
+            {
+                for (int y = 1; y < spielfeldY; y++)
+                {
+                    if (blockposition[1] + y < spielfeldY && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] + y].wert)
+                    {
+                        block[blockposition[0], blockposition[1] + y].wert = 69;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            if (left)
+            {
+                for (int x = 1; x < spielfeldX; x++)
+                {
+                    if (blockposition[0] - x >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] - x, blockposition[1]].wert)
+                    {
+                        block[blockposition[0] - x, blockposition[1]].wert = 69;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            if (top || right || bot || left)
+            {
+                block[blockposition[0], blockposition[1]].wert = 69;
+                top = false;
+                right = false;
+                bot = false;
+                left = false;
+            }
+
+        }
+
         /// <summary>
         /// Gibt den Wert der Spallte in welcher sich der Button befindet zurück
         /// </summary>
