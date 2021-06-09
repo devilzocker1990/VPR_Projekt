@@ -302,5 +302,6 @@ namespace VPR_Projekt
         {
             return (int)btn.GetValue(Grid.RowProperty);
         }
+
     }
 }
