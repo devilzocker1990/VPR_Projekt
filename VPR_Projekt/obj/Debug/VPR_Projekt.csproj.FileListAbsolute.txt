@@ -51,6 +51,7 @@ C:\Users\devil\Desktop\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.Gene
 C:\Users\devil\Desktop\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.CoreCompileInputs.cache
 C:\Users\devil\Desktop\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.exe
 C:\Users\devil\Desktop\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.pdb
+<<<<<<< Updated upstream
 G:\VPR\Game\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.exe.config
 G:\VPR\Game\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.exe
 G:\VPR\Game\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.pdb
@@ -85,3 +86,24 @@ H:\SEN\VPR\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.GenerateResource
 H:\SEN\VPR\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.CoreCompileInputs.cache
 H:\SEN\VPR\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.exe
 H:\SEN\VPR\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.pdb
+=======
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.exe.config
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.exe
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.pdb
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csprojAssemblyReference.cache
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\MainWindow.g.cs
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\Levelauswahl.g.cs
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\Spiel.g.cs
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\App.g.cs
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt_MarkupCompile.cache
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt_MarkupCompile.lref
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\MainWindow.baml
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\Levelauswahl.baml
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\Spiel.baml
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.g.resources
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.Properties.Resources.resources
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.GenerateResource.cache
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.CoreCompileInputs.cache
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.exe
+H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.pdb
+>>>>>>> Stashed changes

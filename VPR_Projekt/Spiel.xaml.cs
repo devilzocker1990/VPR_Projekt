@@ -22,6 +22,7 @@ namespace VPR_Projekt
         //Erstellt ein Bloecke Array
         public Bloecke[,] block;
 
+
         //2 Int Werte welche die Spielfeldgröße festlegen
         public int spielfeldY;
         public int spielfeldX;
@@ -51,10 +52,13 @@ namespace VPR_Projekt
         {
             InitializeComponent();
             firstPick = false;
-            spielfeldX = 10;
-            spielfeldY = 10;
+            //spielfeldX = 10;
+            //spielfeldY = 10;
             block = new Bloecke[spielfeldX, spielfeldY];
             blockposition = new int[2];
+
+            Level test = new Level();
+            test.Hindernisse(1);
             Spielfeld();
         }
 
@@ -63,7 +67,7 @@ namespace VPR_Projekt
         /// </summary>
         public void Spielfeld()
         {
-            Random ran = new Random();
+            Random ran = new Random(1);
             for (int y = 0; y < spielfeldY; y++)
             {
                 for (int x = 0; x < spielfeldX; x++)
