@@ -182,9 +182,9 @@ namespace VPR_Projekt
             {
                 for (int t = 0; t < spielfeldX; t++)
                 {
-                    blockposition[0] = g;
+                    blockposition[0] = g; // braucht man eigentlich
                     blockposition[1] = t;
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < 4; i++) 
                     {
                 
                         if (blockposition[1] + roundy[i] >= 0 && blockposition[1] + roundy[i] < spielfeldY - 1 && blockposition[0] + roundx[i] >= 0 && blockposition[0] + roundy[i] < spielfeldX - 1)
