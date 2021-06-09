@@ -122,7 +122,6 @@ namespace VPR_Projekt
                 blockposition[1] = Y;
                 btnToSwitch = (Bloecke)sender;
             }
-            FeldEinrückung();
 
         }
 
@@ -179,108 +178,118 @@ namespace VPR_Projekt
         bool left = false;
         void ComboFirstBlock()
         {
-            for (int i = 0; i < 4; i++)
+            for (int g = 0; g < spielfeldY; g++)
             {
-                if (blockposition[1] + roundy[i] >= 0 && blockposition[1] + roundy[i] < spielfeldY - 1 && blockposition[0] + roundx[i] >= 0 && blockposition[0] + roundy[i] < spielfeldX - 1)
+                for (int t = 0; t < spielfeldX; t++)
                 {
-
-
-                    if (block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + roundx[i], blockposition[1] + roundy[i]].wert)
+                    blockposition[0] = g;
+                    blockposition[1] = t;
+                    for (int i = 0; i < 4; i++)
                     {
-                        switch (i + 1)
+                
+                        if (blockposition[1] + roundy[i] >= 0 && blockposition[1] + roundy[i] < spielfeldY - 1 && blockposition[0] + roundx[i] >= 0 && blockposition[0] + roundy[i] < spielfeldX - 1)
                         {
-                            case 1:
-                                if (blockposition[1] - 2 > 0 && block[blockposition[0], blockposition[1] - 1].wert == block[blockposition[0], blockposition[1] - 2].wert)
+
+
+                            if (block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + roundx[i], blockposition[1] + roundy[i]].wert)
+                            {
+                                switch (i + 1)
                                 {
-                                    top = true;
-                                }
+                                    case 1:
+                                        if (blockposition[1] - 2 > 0 && block[blockposition[0], blockposition[1] - 1].wert == block[blockposition[0], blockposition[1] - 2].wert)
+                                        {
+                                            top = true;
+                                        }
+                                        break;
+                                    case 2:
+                                        if (blockposition[0] + 2 < spielfeldX && block[blockposition[0] + 1, blockposition[1]].wert == block[blockposition[0] + 2, blockposition[1]].wert)
+                                        {
+                                            right = true;
+                                        }
+                                        break;
+                                    case 3:
+                                        if (blockposition[1] + 2 < spielfeldY && block[blockposition[0], blockposition[1] + 1].wert == block[blockposition[0], blockposition[1] + 2].wert)
+                                        {
+                                            bot = true;
+                                        }
+                                        break;
+                                    case 4:
+                                        if (blockposition[0] - 2 > 0 && block[blockposition[0] - 1, blockposition[1]].wert == block[blockposition[0] - 2, blockposition[1]].wert)
+                                        {
+                                            left = true;
+                                        }
+                                        break;
+                                };
+                            }
+                        }
+                    }
+                    if (top)
+                    {
+                        for (int yyy = 1; yyy < spielfeldY; yyy++)
+                        {
+                            if (blockposition[1] - yyy >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] - yyy].wert)
+                            {
+                                block[blockposition[0], blockposition[1] - yyy].wert = 69;
+                            }
+                            else
+                            {
                                 break;
-                            case 2:
-                                if (blockposition[0] + 2 < spielfeldX && block[blockposition[0] + 1, blockposition[1]].wert == block[blockposition[0] + 2, blockposition[1]].wert)
-                                {
-                                    right = true;
-                                }
+                            }
+                        }
+                    }
+                    if (right)
+                    {
+                        for (int xxx = 1; xxx < spielfeldX; xxx++)
+                        {
+                            if (blockposition[0] + xxx < spielfeldX && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + xxx, blockposition[1]].wert)
+                            {
+                                block[blockposition[0] + xxx, blockposition[1]].wert = 69;
+                            }
+                            else
+                            {
                                 break;
-                            case 3:
-                                if (blockposition[1] + 2 < spielfeldY && block[blockposition[0], blockposition[1] + 1].wert == block[blockposition[0], blockposition[1] + 2].wert)
-                                {
-                                    bot = true;
-                                }
+                            }
+                        }
+                    }
+                    if (bot)
+                    {
+                        for (int yy = 1; yy < spielfeldY; yy++)
+                        {
+                            if (blockposition[1] + yy < spielfeldY && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] + yy].wert)
+                            {
+                                block[blockposition[0], blockposition[1] + yy].wert = 69;
+                            }
+                            else
+                            {
                                 break;
-                            case 4:
-                                if (blockposition[0] - 2 > 0 && block[blockposition[0] - 1, blockposition[1]].wert == block[blockposition[0] - 2, blockposition[1]].wert)
-                                {
-                                    left = true;
-                                }
+                            }
+                        }
+                    }
+                    if (left)
+                    {
+                        for (int xx = 1; xx < spielfeldX; xx++)
+                        {
+                            if (blockposition[0] - xx >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] - xx, blockposition[1]].wert)
+                            {
+                                block[blockposition[0] - xx, blockposition[1]].wert = 69;
+                            }
+                            else
+                            {
                                 break;
-                        };
+                            }
+                        }
+                    }
+                    if (top || right || bot || left)
+                    {
+                        block[blockposition[0], blockposition[1]].wert = 69;
+                        top = false;
+                        right = false;
+                        bot = false;
+                        left = false;
                     }
                 }
             }
-            if (top)
-            {
-                for (int y = 1; y < spielfeldY; y++)
-                {
-                    if (blockposition[1] - y >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] - y].wert)
-                    {
-                        block[blockposition[0], blockposition[1] - y].wert = 69;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            if (right)
-            {
-                for (int x = 1; x < spielfeldX; x++)
-                {
-                    if (blockposition[0] + x < spielfeldX && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + x, blockposition[1]].wert)
-                    {
-                        block[blockposition[0] + x, blockposition[1]].wert = 69;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            if (bot)
-            {
-                for (int y = 1; y < spielfeldY; y++)
-                {
-                    if (blockposition[1] + y < spielfeldY && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] + y].wert)
-                    {
-                        block[blockposition[0], blockposition[1] + y].wert = 69;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            if (left)
-            {
-                for (int x = 1; x < spielfeldX; x++)
-                {
-                    if (blockposition[0] - x >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] - x, blockposition[1]].wert)
-                    {
-                        block[blockposition[0] - x, blockposition[1]].wert = 69;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            if (top || right || bot || left)
-            {
-                block[blockposition[0], blockposition[1]].wert = 69;
-                top = false;
-                right = false;
-                bot = false;
-                left = false;
-            }
+                
 
         }
 
