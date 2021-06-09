@@ -7,9 +7,5 @@
         mc:Ignorable="d"
         Title="Placeholder" Height="550" Width="800">
     <StackPanel Name="StackPanel" Orientation="Vertical">
-        <Label Content="Placeholder" HorizontalAlignment="Center" FontSize="36" Margin="0,0,0,50"/>
-        <Button Name="PlayBtn" Content="Spielen" HorizontalAlignment="Center" Margin="10" FontSize="24" Width="100" Click="PlayBtn_Click"/>
-        <Button Name="OptionBtn" Content="Optionen" HorizontalAlignment="Center" Margin="10" FontSize="24" Width="110" Click="OptionBtn_Click"/>
-        <Button  Name="ExitBtn" Content="Verlassen" HorizontalAlignment="Center" Margin="10" FontSize="24" Width="110" Click="ExitBtn_Click"/>
     </StackPanel>
 </Window>
