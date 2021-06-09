@@ -4,12 +4,20 @@
 winexe
 C#
 .cs
+<<<<<<< Updated upstream
 H:\SEN\VPR\VPR_Projekt\VPR_Projekt\obj\Debug\
+=======
+G:\VPR\Game\VPR_Projekt\VPR_Projekt\obj\Debug\
+>>>>>>> Stashed changes
 VPR_Projekt
 none
 false
 DEBUG;TRACE
+<<<<<<< Updated upstream
 H:\SEN\VPR\VPR_Projekt\VPR_Projekt\App.xaml
+=======
+G:\VPR\Game\VPR_Projekt\VPR_Projekt\App.xaml
+>>>>>>> Stashed changes
 3-1809268366
 
 91302753958
