@@ -44,6 +44,8 @@ namespace VPR_Projekt
         int[] roundy = { -1, 0, 1, 0 };
         int[] duoblock = new int[4];
 
+        Level Levelgröße = new Level();
+
         /// <summary>
         /// Der Konstruktor welcher für den Start die werte Festlegt und beim start des Programms
         /// ausgewählte Methoden aufruft.
@@ -52,14 +54,12 @@ namespace VPR_Projekt
         {
             InitializeComponent();
             firstPick = false;
-            //spielfeldX = 10;
-            //spielfeldY = 10;
-            block = new Bloecke[spielfeldX, spielfeldY];
+            spielfeldX = Levelgröße.LevelSpielfeldX;
+            spielfeldY = Levelgröße.LevelSpielfeldY;
             blockposition = new int[2];
-
-            Level test = new Level();
-            test.Hindernisse(1);
+            Levelgröße.Hindernisse(2);
             Spielfeld();
+            block = new Bloecke[spielfeldX, spielfeldY];
         }
 
         /// <summary>

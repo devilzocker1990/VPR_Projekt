@@ -8,34 +8,47 @@ namespace VPR_Projekt
 {
     class Level
     {
+
+        public int LevelSpielfeldX;
+        public int LevelSpielfeldY;
         private int _LevelLayout;
         public int LevelLayout
         {
             get { return _LevelLayout; }
             set { _LevelLayout = value; }
         }
-        //public int[,] hindernisse;
+
         //public Array[] sammlung;
 
         public Level()
         {
-            
+
 
         }
 
         public int Hindernisse(int levelLayout)
         {
-            Spiel test = new Spiel();
-            
+
             switch (levelLayout)
             {
                 case 1:
-                    test.spielfeldX = 6;
-                    test.spielfeldY = 4;
-                    //sammlung[0] = hindernisse;
+                    LevelSpielfeldX = 4;
+                    LevelSpielfeldY = 5;
+
+                    break;
+                case 2:
+                    LevelSpielfeldX = 8;
+                    LevelSpielfeldY = 6;
+                    int[,] hindernisse = new int[6, 8] {
+                        { 0, 0, 0, 0, 0, 0, 0, 0 },
+                        { 0, 0, 0, 0, 0, 0, 0, 0 },
+                        { 0, 0, 0, 0, 0, 0, 0, 0 },
+                        { 0, 0, 0, 0, 0, 0, 0, 0 },
+                        { 0, 0, 0, 0, 0, 0, 0, 0 },
+                        { 0, 0, 0, 0, 0, 0, 0, 0 } };
                     break;
             }
-            return test.spielfeldX & test.spielfeldY;
+            return LevelSpielfeldX & LevelSpielfeldY;
         }
     }
 }
