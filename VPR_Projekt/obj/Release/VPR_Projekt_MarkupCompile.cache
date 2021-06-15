@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Release\
 VPR_Projekt
 none
 false
-DEBUG;TRACE
+TRACE
 D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\App.xaml
 2-703057406
 
@@ -16,5 +16,5 @@ D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\App.xaml
 13-1505183044
 MainWindow.xaml;Spiel.xaml;
 
-False
+True
 

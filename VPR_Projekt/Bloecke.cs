@@ -54,6 +54,10 @@ namespace VPR_Projekt
                     blockart.wert = 5;
                     blockart.Background = Brushes.Black;
                     return blockart;
+                case 20:
+                    blockart.wert = 20;
+                    blockart.Background = Brushes.White;
+                    return blockart;
                 case 69:
                     blockart.wert = 69;
                     blockart.Background = Brushes.HotPink;

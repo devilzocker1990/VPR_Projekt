@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.IO;
 using System.Windows.Controls;
 
 namespace VPR_Projekt
@@ -200,6 +201,7 @@ namespace VPR_Projekt
         private void Level1Btn_Click(object sender, RoutedEventArgs e)
         {
             Spiel level1 = new Spiel();
+            level1.ausgewaehlteLevel = 0;
             level1.Show();
             this.Close();
         }
@@ -211,8 +213,9 @@ namespace VPR_Projekt
         /// <param name="e"></param>
         private void Level2Btn_Click(object sender, RoutedEventArgs e)
         {
-            //Level2 level2 = new Level2();
-            //level2.Show();
+            Spiel level2 = new Spiel();
+            level2.ausgewaehlteLevel = 1;
+            level2.Show();
             this.Close();
         }
 

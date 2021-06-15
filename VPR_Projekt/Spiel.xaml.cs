@@ -46,6 +46,8 @@ namespace VPR_Projekt
 
         Level Levelgröße = new Level();
 
+        public int ausgewaehlteLevel;
+
         /// <summary>
         /// Der Konstruktor welcher für den Start die werte Festlegt und beim start des Programms
         /// ausgewählte Methoden aufruft.
@@ -53,13 +55,14 @@ namespace VPR_Projekt
         public Spiel()
         {
             InitializeComponent();
+            Console.WriteLine(ausgewaehlteLevel);
+            block = Levelgröße.Hindernisse(ausgewaehlteLevel);
+            Console.WriteLine(ausgewaehlteLevel);
             firstPick = false;
-            spielfeldX = Levelgröße.LevelSpielfeldX;
-            spielfeldY = Levelgröße.LevelSpielfeldY;
+            spielfeldX = block.GetLength(0);
+            spielfeldY = block.GetLength(1);
             blockposition = new int[2];
-            Levelgröße.Hindernisse(2);
             Spielfeld();
-            block = new Bloecke[spielfeldX, spielfeldY];
         }
 
         /// <summary>
@@ -72,12 +75,23 @@ namespace VPR_Projekt
             {
                 for (int x = 0; x < spielfeldX; x++)
                 {
-                    Bloecke bloecke = new Bloecke();
-                    block[x, y] = bloecke.BlockErstellung(ran.Next(1, 6));
-                    block[x, y].Click += new RoutedEventHandler(OnClick);
-                    Grid.SetColumn(block[x, y], x);
-                    Grid.SetRow(block[x, y], y);
-                    spielfeldGrid.Children.Add(block[x, y]);
+                    if (block[x,y].wert != 20)
+                    {
+                        Bloecke bloecke = new Bloecke();
+                        block[x, y] = bloecke.BlockErstellung(ran.Next(1, 6));
+                        block[x, y].Click += new RoutedEventHandler(OnClick);
+                        Grid.SetColumn(block[x, y], x);
+                        Grid.SetRow(block[x, y], y);
+                        spielfeldGrid.Children.Add(block[x, y]);
+                    }
+                    else
+                    {
+                        Bloecke bloecke = new Bloecke();
+                        block[x, y] = bloecke.BlockErstellung(20);
+                        Grid.SetColumn(block[x, y], x);
+                        Grid.SetRow(block[x, y], y);
+                        spielfeldGrid.Children.Add(block[x, y]);
+                    }
                 }
             }
         }

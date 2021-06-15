@@ -107,3 +107,20 @@ H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.CoreComp
 H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.exe
 H:\semester_4_2021\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.pdb
 >>>>>>> Stashed changes
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.exe.config
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.exe
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\bin\Debug\VPR_Projekt.pdb
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csprojAssemblyReference.cache
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\MainWindow.g.cs
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\Spiel.g.cs
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\App.g.cs
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt_MarkupCompile.cache
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt_MarkupCompile.lref
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\MainWindow.baml
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\Spiel.baml
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.g.resources
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.Properties.Resources.resources
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.GenerateResource.cache
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.CoreCompileInputs.cache
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.exe
+D:\VPRAKTUELL\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.pdb
