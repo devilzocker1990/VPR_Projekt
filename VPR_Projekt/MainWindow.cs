@@ -138,7 +138,6 @@ namespace VPR_Projekt
                         break;
                     case 7:
                         button.Content = btnname;
-                        button.HorizontalAlignment = HorizontalAlignment.Center;
                         button.Click += new RoutedEventHandler(Level7Btn_Click);
                         Grid.SetRow(button, 3);
                         Grid.SetColumn(button, 0);
