@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:VPR_Projekt"
         mc:Ignorable="d"
         Title="Spiel" Height="850" Width="1000" ResizeMode="NoResize">
-    <StackPanel Orientation="Vertical" Background="Black">
+    <StackPanel Orientation="Vertical" Background="White">
         <TextBlock FontSize="26" FontWeight="Bold" Height="80"/>
         <StackPanel Height="60" Orientation="Horizontal" FlowDirection="RightToLeft">
             <Button Width="50" Margin="40,5,173,5" Click="OptionBtn"/>

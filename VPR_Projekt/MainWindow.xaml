@@ -6,6 +6,6 @@
         xmlns:local="clr-namespace:VPR_Projekt"
         mc:Ignorable="d"
         Title="Placeholder" Height="550" Width="800">
-    <StackPanel Name="StackPanel" Orientation="Vertical" Background="Black">
+    <StackPanel Name="StackPanel" Orientation="Vertical" Background="White">
     </StackPanel>
 </Window>
