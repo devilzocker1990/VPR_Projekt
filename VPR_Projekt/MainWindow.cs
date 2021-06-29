@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace VPR_Projekt
 {
@@ -9,8 +11,11 @@ namespace VPR_Projekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        int fontSize = 36;
+        BitmapImage brush;
         public MainWindow()
         {
+            brush = new BitmapImage();
             InitializeComponent();
             GenerateMainMenu();
         }
@@ -19,21 +24,26 @@ namespace VPR_Projekt
         /// </summary>
         private void GenerateMainMenu()
         {
+            Image image = new Image();
             StackPanel.Children.Clear();
             Label label = new Label();
             label.Content = "Bansai Crush";
             label.HorizontalAlignment = HorizontalAlignment.Center;
-            label.FontSize = 36;
-            label.Margin = new Thickness(0, 0, 0, 50);
+            label.FontSize = fontSize;
+            label.FontFamily = new FontFamily("Segoe Print");
+            label.FontWeight = FontWeights.Bold;
+            label.Margin = new Thickness(0, 50, 0, 50);
             StackPanel.Children.Add(label);
             for (int i = 1; i < 4; i++)
             {
                 Button button = new Button();
                 int fontsize = 24;
-                int widthsize = 110;
+                int widthsize = 130;
                 int marginsize = 10;
                 button.HorizontalAlignment = HorizontalAlignment.Center;
                 button.Margin = new Thickness(marginsize);
+                button.FontFamily = new FontFamily("Segoe Print");
+                button.Background = Brushes.Transparent;
                 button.FontSize = fontsize;
                 button.Width = widthsize;
                 if (i == 1)
@@ -45,6 +55,7 @@ namespace VPR_Projekt
                 {
                     button.Content = "Optionen";
                     button.Click += new RoutedEventHandler(OptionBtn_Click);
+                    button.IsEnabled = false;
                 }
                 if (i == 3)
                 {
@@ -64,7 +75,8 @@ namespace VPR_Projekt
             Label label = new Label();
             label.Content = "Levelauswahl";
             label.HorizontalAlignment = HorizontalAlignment.Center;
-            label.FontSize = 36;
+            label.FontSize = fontSize;
+            label.FontFamily = new FontFamily("Segoe Print");
             label.Margin = new Thickness(0, 0, 0, 50);
             StackPanel.Children.Add(label);
             Grid grid = new Grid();
@@ -85,71 +97,88 @@ namespace VPR_Projekt
             for (int i = 1; i < 9; i++)
             {
                 Button button = new Button();
-                string btnname = "Level " + i;
-                int fontsize = 23;
-                int widthsize = 100;
-                int marginsize = 10;
+                Image image = new Image();
+                string btnName = "Level " + i;
+                int fontSize = 23;
+                int btnWidthSize = 180;
+                int btnnHeightSize = 56;
                 button.HorizontalAlignment = HorizontalAlignment.Center;
-                button.Margin = new Thickness(marginsize);
-                button.FontSize = fontsize;
-                button.Width = widthsize;
+                button.Margin = new Thickness(0, 0, 0, 10);
+                button.FontSize = fontSize;
+                button.FontFamily = new FontFamily("Segoe Print");
+                button.Width = btnWidthSize;
+                button.Height = btnnHeightSize;
+                image.Width = 200;
+                image.Stretch = Stretch.UniformToFill;
 
                 switch (i)
                 {
                     case 1:
-                        button.Content = btnname;
+                        brush.UriSource = new Uri(@"Media\Level\NoLotusLevel.png", UriKind.Relative);
+                        image.Source = brush;
+                        button.Content = btnName;
+                        button.Background = Brushes.Transparent;
                         button.Click += new RoutedEventHandler(Level1Btn_Click);
+                        Grid.SetRow(image, 0);
+                        Grid.SetColumn(image, 0);
                         Grid.SetRow(button, 0);
                         Grid.SetColumn(button, 0);
-
                         break;
 
                     case 2:
-                        button.Content = btnname;
+                        button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level2Btn_Click);
+                        button.IsEnabled = false;
                         Grid.SetRow(button, 0);
                         Grid.SetColumn(button, 1);
 
                         break;
                     case 3:
-                        button.Content = btnname;
+                        button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level3Btn_Click);
+                        button.IsEnabled = false;
                         Grid.SetRow(button, 1);
                         Grid.SetColumn(button, 0);
 
                         break;
                     case 4:
-                        button.Content = btnname;
+                        button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level4Btn_Click);
+                        button.IsEnabled = false;
                         Grid.SetRow(button, 1);
                         Grid.SetColumn(button, 1);
                         break;
                     case 5:
-                        button.Content = btnname;
+                        button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level5Btn_Click);
+                        button.IsEnabled = false;
                         Grid.SetRow(button, 2);
                         Grid.SetColumn(button, 0);
                         break;
                     case 6:
-                        button.Content = btnname;
+                        button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level6Btn_Click);
+                        button.IsEnabled = false;
                         Grid.SetRow(button, 2);
                         Grid.SetColumn(button, 1);
                         break;
                     case 7:
-                        button.Content = btnname;
+                        button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level7Btn_Click);
+                        button.IsEnabled = false;
                         Grid.SetRow(button, 3);
                         Grid.SetColumn(button, 0);
                         break;
                     case 8:
-                        button.Content = btnname;
+                        button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level8Btn_Click);
+                        button.IsEnabled = false;
                         Grid.SetRow(button, 3);
                         Grid.SetColumn(button, 1);
                         break;
 
                 }
+                grid.Children.Add(image);
                 grid.Children.Add(button);
 
             }
@@ -159,6 +188,7 @@ namespace VPR_Projekt
             backbtn.Margin = new Thickness(0, 50, 0, 0);
             backbtn.FontSize = 23;
             backbtn.Width = 100;
+            backbtn.FontFamily = new FontFamily("Segoe Print");
             backbtn.Click += new RoutedEventHandler(BackBtn_Click);
             StackPanel.Children.Add(backbtn);
         }
@@ -168,7 +198,7 @@ namespace VPR_Projekt
         /// </summary>
         private void OptionsMenu()
         {
-            throw new NotImplementedException();
+            
         }
 
         /// <summary>

@@ -102,5 +102,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Blöcke\Bansai.png" />
+    <Resource Include="Media\Blöcke\FoxMask.png" />
+    <Resource Include="Media\Blöcke\OniMask.png" />
+    <Resource Include="Media\Blöcke\Ramen.png" />
+    <Resource Include="Media\Blöcke\Sake.png" />
+    <Resource Include="Media\GUI\Main.jpg" />
+    <Resource Include="Media\GUI\Quest.png" />
+    <Resource Include="Media\Level\LockedLevel.png" />
+    <Resource Include="Media\Level\NoLotusLevel.png" />
+    <Resource Include="Media\Level\OneLotusLevel.png" />
+    <Resource Include="Media\Level\ThreeLotusLevel.png" />
+    <Resource Include="Media\Level\TwoLotusLevel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

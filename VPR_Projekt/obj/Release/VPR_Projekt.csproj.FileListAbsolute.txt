@@ -1,0 +1,17 @@
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\bin\Release\VPR_Projekt.exe.config
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\bin\Release\VPR_Projekt.exe
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\bin\Release\VPR_Projekt.pdb
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt.csprojAssemblyReference.cache
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\MainWindow.g.cs
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\Spiel.g.cs
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\App.g.cs
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt_MarkupCompile.cache
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt_MarkupCompile.lref
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\MainWindow.baml
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\Spiel.baml
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt.g.resources
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt.Properties.Resources.resources
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt.csproj.GenerateResource.cache
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt.csproj.CoreCompileInputs.cache
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt.exe
+E:\Dokumente\GitHub\VPR_Projekt\VPR_Projekt\obj\Release\VPR_Projekt.pdb

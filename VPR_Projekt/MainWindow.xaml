@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VPR_Projekt"
         mc:Ignorable="d"
-        Title="Placeholder" Height="550" Width="800">
-    <StackPanel Name="StackPanel" Orientation="Vertical" Background="White">
-    </StackPanel>
+        Title="Bansai Crush" Height="550" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="Media/GUI/Main.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+    <StackPanel Name="StackPanel" Orientation="Vertical"/>
 </Window>
