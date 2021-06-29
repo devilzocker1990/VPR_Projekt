@@ -47,6 +47,7 @@ namespace VPR_Projekt
             block = new Bloecke[spielfeldX, spielfeldY];
             blockposition = new int[2];
             Spielfeld();
+            QuestTextBlock.Text = String.Format("\t Aufgabe: \n \t Erreiche {0} Combos \n \t in {1} Zügen!",X,X);
         }
 
         /// <summary>

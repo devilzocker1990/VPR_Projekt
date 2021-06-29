@@ -12,10 +12,10 @@ namespace VPR_Projekt
     public partial class MainWindow : Window
     {
         int fontSize = 36;
-        BitmapImage brush;
+        ImageBrush brush;
         public MainWindow()
         {
-            brush = new BitmapImage();
+            brush = new ImageBrush();
             InitializeComponent();
             GenerateMainMenu();
         }
@@ -108,19 +108,14 @@ namespace VPR_Projekt
                 button.FontFamily = new FontFamily("Segoe Print");
                 button.Width = btnWidthSize;
                 button.Height = btnnHeightSize;
-                image.Width = 200;
-                image.Stretch = Stretch.UniformToFill;
 
                 switch (i)
                 {
                     case 1:
-                        brush.UriSource = new Uri(@"Media\Level\NoLotusLevel.png", UriKind.Relative);
-                        image.Source = brush;
+                        
                         button.Content = btnName;
                         button.Background = Brushes.Transparent;
                         button.Click += new RoutedEventHandler(Level1Btn_Click);
-                        Grid.SetRow(image, 0);
-                        Grid.SetColumn(image, 0);
                         Grid.SetRow(button, 0);
                         Grid.SetColumn(button, 0);
                         break;
