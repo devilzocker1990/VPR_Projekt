@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,6 +11,8 @@ namespace VPR_Projekt
     /// </summary>
     public partial class Spiel : Window
     {
+        SqlConnection database = new SqlConnection();
+
         //Erstellt ein Bloecke Array
         public Bloecke[,] block;
 
@@ -40,6 +43,15 @@ namespace VPR_Projekt
         /// </summary>
         public Spiel()
         {
+            try
+            {
+                database.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" + "AttachDbFilename=|DataDirectory|\\scoresToReach.mdf;" + "Integrated Security=True";
+                database.Open();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Database not found");
+            }
             InitializeComponent();
             firstPick = false;
             spielfeldX = 10;
