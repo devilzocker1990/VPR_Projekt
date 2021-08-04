@@ -179,7 +179,7 @@ namespace VPR_Projekt
                     for (int i = 0; i < 4; i++) 
                     {
                 
-                        if (blockposition[1] + roundy[i] >= 0 && blockposition[1] + roundy[i] < spielfeldY - 1 && blockposition[0] + roundx[i] >= 0 && blockposition[0] + roundy[i] < spielfeldX - 1)
+                        if (blockposition[1] + roundy[i] >= 0 && blockposition[1] + roundy[i] < spielfeldY && blockposition[0] + roundx[i] >= 0 && blockposition[0] + roundy[i] < spielfeldX - 1)
                         {
 
 
@@ -221,7 +221,11 @@ namespace VPR_Projekt
                         {
                             if (blockposition[1] - yyy >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] - yyy].wert)
                             {
-                                block[blockposition[0], blockposition[1] - yyy].wert = 69;
+                                if (block[blockposition[0], blockposition[1] - yyy].wert != 69)
+                                {
+                                    block[blockposition[0], blockposition[1] - yyy].wert = 69;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 10;
+                                }
                             }
                             else
                             {
@@ -233,9 +237,13 @@ namespace VPR_Projekt
                     {
                         for (int xxx = 1; xxx < spielfeldX; xxx++)
                         {
-                            if (blockposition[0] + xxx < spielfeldX && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + xxx, blockposition[1]].wert)
+                            if (blockposition[0] + xxx < spielfeldX  && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] + xxx, blockposition[1]].wert)
                             {
-                                block[blockposition[0] + xxx, blockposition[1]].wert = 69;
+                                if (block[blockposition[0] + xxx, blockposition[1]].wert != 69)
+                                {
+                                    block[blockposition[0] + xxx, blockposition[1]].wert = 69;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 10;
+                                }
                             }
                             else
                             {
@@ -249,7 +257,11 @@ namespace VPR_Projekt
                         {
                             if (blockposition[1] + yy < spielfeldY && block[blockposition[0], blockposition[1]].wert == block[blockposition[0], blockposition[1] + yy].wert)
                             {
-                                block[blockposition[0], blockposition[1] + yy].wert = 69;
+                                if (block[blockposition[0], blockposition[1] + yy].wert != 69)
+                                {
+                                    block[blockposition[0], blockposition[1] + yy].wert = 69;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 10;
+                                }
                             }
                             else
                             {
@@ -263,7 +275,11 @@ namespace VPR_Projekt
                         {
                             if (blockposition[0] - xx >= 0 && block[blockposition[0], blockposition[1]].wert == block[blockposition[0] - xx, blockposition[1]].wert)
                             {
-                                block[blockposition[0] - xx, blockposition[1]].wert = 69;
+                                if (block[blockposition[0] - xx, blockposition[1]].wert != 69)
+                                {
+                                    block[blockposition[0] - xx, blockposition[1]].wert = 69;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 10;
+                                }
                             }
                             else
                             {
