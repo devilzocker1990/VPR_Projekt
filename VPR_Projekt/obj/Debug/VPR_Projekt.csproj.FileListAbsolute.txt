@@ -165,3 +165,6 @@ H:\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.GenerateResource.cache
 H:\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.csproj.CoreCompileInputs.cache
 H:\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.exe
 H:\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt.pdb
+H:\SEN\VPR\VPR_Projekt\VPR_Projekt\bin\Debug\scoresToReach.mdf
+H:\SEN\VPR\VPR_Projekt\VPR_Projekt\bin\Debug\scoresToReach_log.ldf
+H:\SEN\VPR\VPR_Projekt\VPR_Projekt\obj\Debug\VPR_Projekt_Content.g.cs

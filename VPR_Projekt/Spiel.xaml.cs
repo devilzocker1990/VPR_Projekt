@@ -29,6 +29,7 @@ namespace VPR_Projekt
         // ein objekt der Klasse Bloecke welcher als zwischenspeicher für den Tausch fungiert
         private Bloecke btnToSwitch;
 
+        Bloecke bloecke = new Bloecke();
         //2 Int Werte welche die X und Y position des Angeklickten buttons Spreichern
         int X;
         int Y;
@@ -73,7 +74,6 @@ namespace VPR_Projekt
             {
                 for (int x = 0; x < spielfeldX; x++)
                 {
-                    Bloecke bloecke = new Bloecke();
                     block[x, y] = bloecke.BlockErstellung(ran.Next(1, 6));
                     block[x, y].Click += new RoutedEventHandler(OnClick);
                     Grid.SetColumn(block[x, y], x);
@@ -136,40 +136,50 @@ namespace VPR_Projekt
         private void FeldEinrückung()
         {
             Random ran = new Random();
-            for (int i = spielfeldY - 1; i > 0; i--)
+            while (LeereFelder())
             {
-                for (int j = spielfeldX - 1; j > 0; j--)
+                for (int y = spielfeldY - 1; y >= 0; y--)
                 {
-                    if (block[i, j].wert == 69)
+                    for (int x = spielfeldX - 1; x >= 0; x--)
                     {
-                        if (block[i, j - 1].wert == 69)
+                        if (block[x, y].wert == 69)
                         {
-                            int counter = 1;
-                            for (int k = 1; k > block.GetLength(0) - 1; k++)
+                            int currenty = y;
+                            while (currenty > 0)
                             {
-                                if (block[i, j - 1].wert == 69)
-                                {
-                                    counter++;
-                                }
-                                else
-                                {
-                                    block[i, j].wert = block[i, j - counter].wert;
-                                    block[i, j - counter].wert = 0;
-                                }
+                                block[x, currenty].wert = block[x, currenty - 1].wert;
+                                block[x, currenty - 1].wert = 69;
+                                currenty--;
+                            }
+
+                        }
+                        for (int i = 0; i < spielfeldX; i++)
+                        {
+                            if (block[i, 0].wert == 69)
+                            {
+                                block[i, 0] = bloecke.BlockErstellung(ran.Next(1, 6));
                             }
                         }
-                        else
-                        {
-                            block[i, j].wert = block[i, j - 1].wert;
-                            block[i, j - 1].wert = 0;
-                        }
-                    }
-                    if (block[j, 0].wert == 69)
-                    {
-                        block[j, 0].BlockErstellung(ran.Next(1, 6));
                     }
                 }
+                ComboFirstBlock();
             }
+        }
+        private bool LeereFelder()
+        {
+            Random ran = new Random();
+            for (int y = spielfeldY - 1; y >= 0; y--)
+            {
+                for (int x = spielfeldX - 1; x >= 0; x--)
+                {
+                    if (block[x, y].wert == 69)
+                    {
+                        return true;
+                    }
+                    
+                }
+            }
+            return false;
         }
 
 
@@ -236,7 +246,7 @@ namespace VPR_Projekt
                             {
                                 if (block[blockposition[0], blockposition[1] - yyy].wert != 69)
                                 {
-                                    Points.Content = Convert.ToInt32(Points.Content) + 50;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 1;
                                     block[blockposition[0], blockposition[1] - yyy].wert = 69;
                                 }
                             }
@@ -254,7 +264,7 @@ namespace VPR_Projekt
                             {
                                 if (block[blockposition[0] + xxx, blockposition[1]].wert != 69)
                                 {
-                                    Points.Content = Convert.ToInt32(Points.Content) + 50;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 1;
                                     block[blockposition[0] + xxx, blockposition[1]].wert = 69;
                                 }
                             }
@@ -272,7 +282,7 @@ namespace VPR_Projekt
                             {
                                 if (block[blockposition[0], blockposition[1] + yy].wert != 69)
                                 {
-                                    Points.Content = Convert.ToInt32(Points.Content) + 50;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 1;
                                     block[blockposition[0], blockposition[1] + yy].wert = 69;
                                 }
                             }
@@ -290,7 +300,7 @@ namespace VPR_Projekt
                             {
                                 if (block[blockposition[0] - xx, blockposition[1]].wert != 69)
                                 {
-                                    Points.Content = Convert.ToInt32(Points.Content) + 50;
+                                    Points.Content = Convert.ToInt32(Points.Content) + 1;
                                     block[blockposition[0] - xx, blockposition[1]].wert = 69;
                                 }
                             }
@@ -310,8 +320,8 @@ namespace VPR_Projekt
                     }
                 }
             }
-                
 
+            FeldEinrückung();
         }
 
         /// <summary>
