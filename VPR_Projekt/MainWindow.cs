@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -13,8 +14,18 @@ namespace VPR_Projekt
     {
         int fontSize = 36;
         ImageBrush brush;
+        SqlConnection database = new SqlConnection();
         public MainWindow()
         {
+            try
+            {
+                database.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" + "AttachDbFilename=|DataDirectory|\\scoresToReach.mdf;" + "Integrated Security=True";
+                database.Open();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Database not found");
+            }
             brush = new ImageBrush();
             InitializeComponent();
             GenerateMainMenu();
