@@ -1,8 +1,0 @@
-﻿INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (1, 100, 200, 300)
-INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (2, 110, 220, 330)
-INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (3, 120, 240, 360)
-INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (4, 130, 260, 390)
-INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (5, 140, 280, 420)
-INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (6, 150, 300, 450)
-INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (7, 160, 320, 480)
-INSERT INTO [dbo].[scoresToReach] ([levelID], [oneStar], [twoStars], [threeStars]) VALUES (8, 170, 340, 510)
