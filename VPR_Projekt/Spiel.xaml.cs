@@ -11,7 +11,8 @@ namespace VPR_Projekt
     /// </summary>
     public partial class Spiel : Window
     {
-        SqlConnection database = new SqlConnection();
+        SqlConnection database;
+        string connectionString;
 
         //Erstellt ein Bloecke Array
         public Bloecke[,] block;
@@ -44,16 +45,10 @@ namespace VPR_Projekt
         /// </summary>
         public Spiel()
         {
-            try
-            {
-                database.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" + "AttachDbFilename=|DataDirectory|\\scoresToReach.mdf;" + "Integrated Security=True";
-                database.Open();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Database not found");
-            }
             InitializeComponent();
+            string connectionPath = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) + "\\scoresToReach.mdf";
+            connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=" + connectionPath + ";Integrated Security=True";
+            database = new SqlConnection(connectionString);
             firstPick = false;
             spielfeldX = 10;
             spielfeldY = 10;
@@ -62,6 +57,7 @@ namespace VPR_Projekt
             Spielfeld();
             QuestTextBlock.Text = String.Format("\t Aufgabe: \n \t Erreiche {0} Combos \n \t in {1} Zügen!",X,X);
             Points.Content = "0";
+            
         }
 
         /// <summary>
@@ -345,6 +341,23 @@ namespace VPR_Projekt
 
         private void BackBtn(object sender, RoutedEventArgs e)
         {
+            SqlCommand getLevel1Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 1", database);
+            database.Open();
+            int lvl1high = Convert.ToInt32(getLevel1Score.ExecuteScalar().ToString());
+            int currentPoints = Convert.ToInt32(Points.Content);
+            if (currentPoints > lvl1high)
+            {
+                SqlCommand updateHighscore = new SqlCommand("UPDATE Highscore SET high ='"+currentPoints+"'"+"WHERE levelID=1", database);
+                if (updateHighscore.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Woohoo new Highscore: " + currentPoints + " You've beaten the old one which was: " + lvl1high);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Your points are lower than the current highscore! Current Highscore: " + lvl1high);
+            }
+            database.Close();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();

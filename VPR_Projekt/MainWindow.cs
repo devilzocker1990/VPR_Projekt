@@ -14,21 +14,18 @@ namespace VPR_Projekt
     {
         int fontSize = 36;
         ImageBrush brush;
-        SqlConnection database = new SqlConnection();
+        SqlConnection database;
+        string connectionString;
+
         public MainWindow()
         {
-            try
-            {
-                database.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" + "AttachDbFilename=|DataDirectory|\\scoresToReach.mdf;" + "Integrated Security=True";
-                database.Open();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Database not found");
-            }
+            
             brush = new ImageBrush();
             InitializeComponent();
             GenerateMainMenu();
+            string connectionPath = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) + "\\scoresToReach.mdf";
+            connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=" + connectionPath + ";Integrated Security=True";
+            database = new SqlConnection(connectionString);
         }
         /// <summary>
         /// Generiert das Hauptmenü, mit einem Label und drei Buttons.
@@ -134,53 +131,159 @@ namespace VPR_Projekt
                     case 2:
                         button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level2Btn_Click);
-                        button.IsEnabled = false;
                         Grid.SetRow(button, 0);
                         Grid.SetColumn(button, 1);
+                        SqlCommand getLevel2Need = new SqlCommand("SELECT (oneStar) FROM scoresToReach WHERE levelID = 2", database);
+                        SqlCommand getLevel1Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 1", database);
+                        database.Open();
+                        string lvl1high = getLevel1Score.ExecuteScalar().ToString();
+                        int lvl1highscore = Convert.ToInt32(lvl1high);
+                        string lvl2 = getLevel2Need.ExecuteScalar().ToString();
+                        int lvl2NeededPoints = Convert.ToInt32(lvl2);
+                        MessageBox.Show("lvl1highscore: " + lvl1highscore + "  ... you need for lvl2" + lvl2NeededPoints);
+                        database.Close();
+                        if (lvl1highscore >= lvl2NeededPoints)
+                        {
+                            button.IsEnabled = true;
+                        }
+                        else
+                        {
+                            button.IsEnabled = false;
+                        }
 
                         break;
                     case 3:
                         button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level3Btn_Click);
-                        button.IsEnabled = false;
                         Grid.SetRow(button, 1);
                         Grid.SetColumn(button, 0);
+                        SqlCommand getLevel3Need = new SqlCommand("SELECT (oneStar) FROM scoresToReach WHERE levelID = 3", database);
+                        SqlCommand getLevel2Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 2", database);
+                        database.Open();
+                        string lvl2high = getLevel2Score.ExecuteScalar().ToString();
+                        int lvl2highscore = Convert.ToInt32(lvl2high);
+                        string lvl3 = getLevel3Need.ExecuteScalar().ToString();
+                        int lvl3NeededPoints = Convert.ToInt32(lvl3);
+                        database.Close();
+                        if (lvl2highscore >= lvl3NeededPoints)
+                        {
+                            button.IsEnabled = true;
+                        }
+                        else
+                        {
+                            button.IsEnabled = false;
+                        }
 
                         break;
                     case 4:
                         button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level4Btn_Click);
-                        button.IsEnabled = false;
                         Grid.SetRow(button, 1);
                         Grid.SetColumn(button, 1);
+                        SqlCommand getLevel4Need = new SqlCommand("SELECT (oneStar) FROM scoresToReach WHERE levelID = 4", database);
+                        SqlCommand getLevel3Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 3", database);
+                        database.Open();
+                        string lvl3high = getLevel3Score.ExecuteScalar().ToString();
+                        int lvl3highscore = Convert.ToInt32(lvl3high);
+                        string lvl4 = getLevel4Need.ExecuteScalar().ToString();
+                        int lvl4NeededPoints = Convert.ToInt32(lvl4);
+                        database.Close();
+                        if (lvl3highscore >= lvl4NeededPoints)
+                        {
+                            button.IsEnabled = true;
+                        }
+                        else
+                        {
+                            button.IsEnabled = false;
+                        }
                         break;
                     case 5:
                         button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level5Btn_Click);
-                        button.IsEnabled = false;
                         Grid.SetRow(button, 2);
                         Grid.SetColumn(button, 0);
+                        SqlCommand getLevel5Need = new SqlCommand("SELECT (oneStar) FROM scoresToReach WHERE levelID = 5", database);
+                        SqlCommand getLevel4Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 4", database);
+                        database.Open();
+                        string lvl4high = getLevel4Score.ExecuteScalar().ToString();
+                        int lvl4highscore = Convert.ToInt32(lvl4high);
+                        string lvl5 = getLevel5Need.ExecuteScalar().ToString();
+                        int lvl5NeededPoints = Convert.ToInt32(lvl5);
+                        database.Close();
+                        if (lvl4highscore >= lvl5NeededPoints)
+                        {
+                            button.IsEnabled = true;
+                        }
+                        else
+                        {
+                            button.IsEnabled = false;
+                        }
                         break;
                     case 6:
                         button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level6Btn_Click);
-                        button.IsEnabled = false;
                         Grid.SetRow(button, 2);
                         Grid.SetColumn(button, 1);
+                        SqlCommand getLevel6Need = new SqlCommand("SELECT (oneStar) FROM scoresToReach WHERE levelID = 6", database);
+                        SqlCommand getLevel5Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 5", database);
+                        database.Open();
+                        string lvl5high = getLevel5Score.ExecuteScalar().ToString();
+                        int lvl5highscore = Convert.ToInt32(lvl5high);
+                        string lvl6 = getLevel6Need.ExecuteScalar().ToString();
+                        int lvl6NeededPoints = Convert.ToInt32(lvl6);
+                        database.Close();
+                        if (lvl5highscore >= lvl6NeededPoints)
+                        {
+                            button.IsEnabled = true;
+                        }
+                        else
+                        {
+                            button.IsEnabled = false;
+                        }
                         break;
                     case 7:
                         button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level7Btn_Click);
-                        button.IsEnabled = false;
                         Grid.SetRow(button, 3);
                         Grid.SetColumn(button, 0);
+                        SqlCommand getLevel7Need = new SqlCommand("SELECT (oneStar) FROM scoresToReach WHERE levelID = 7", database);
+                        SqlCommand getLevel6Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 6", database);
+                        database.Open();
+                        string lvl6high = getLevel6Score.ExecuteScalar().ToString();
+                        int lvl6highscore = Convert.ToInt32(lvl6high);
+                        string lvl7 = getLevel7Need.ExecuteScalar().ToString();
+                        int lvl7NeededPoints = Convert.ToInt32(lvl7);
+                        database.Close();
+                        if (lvl6highscore >= lvl7NeededPoints)
+                        {
+                            button.IsEnabled = true;
+                        }
+                        else
+                        {
+                            button.IsEnabled = false;
+                        }
                         break;
                     case 8:
                         button.Content = btnName;
                         button.Click += new RoutedEventHandler(Level8Btn_Click);
-                        button.IsEnabled = false;
                         Grid.SetRow(button, 3);
                         Grid.SetColumn(button, 1);
+                        SqlCommand getLevel8Need = new SqlCommand("SELECT (oneStar) FROM scoresToReach WHERE levelID = 8", database);
+                        SqlCommand getLevel7Score = new SqlCommand("SELECT (high) FROM Highscore WHERE levelID = 7", database);
+                        database.Open();
+                        string lvl7high = getLevel7Score.ExecuteScalar().ToString();
+                        int lvl7highscore = Convert.ToInt32(lvl7high);
+                        string lvl8 = getLevel8Need.ExecuteScalar().ToString();
+                        int lvl8NeededPoints = Convert.ToInt32(lvl8);
+                        database.Close();
+                        if (lvl7highscore >= lvl8NeededPoints)
+                        {
+                            button.IsEnabled = true;
+                        }
+                        else
+                        {
+                            button.IsEnabled = false;
+                        }
                         break;
 
                 }
@@ -246,8 +349,8 @@ namespace VPR_Projekt
         /// <param name="e"></param>
         private void Level2Btn_Click(object sender, RoutedEventArgs e)
         {
-            //Level2 level2 = new Level2();
-            //level2.Show();
+            Spiel level2 = new Spiel();
+            level2.Show();
             this.Close();
         }
 
